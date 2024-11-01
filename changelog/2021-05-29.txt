@@ -1,0 +1,9 @@
+*May 29, 2021
+
+
+1. Updated core/src/word/search/ui/dialogs/DailyRewardDialog.java to fix the double reward issue
+
+Changed the giveCoinReward() method in this file.
+
+
+

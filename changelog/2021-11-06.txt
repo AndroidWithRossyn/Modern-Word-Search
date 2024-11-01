@@ -1,0 +1,21 @@
+1. Update gradle versions. In Android Studio open File/Project Structure. In the Project tab, change Android Gradle Plugin Version to 7.0.3 and Gradle version to 7.3.1. Sync project
+
+2. Update google services version. Open the top-level gradle.build file. Find com.google.gms:google-services and change its version to 4.3.10. Sync project
+
+3.Update Android SDK API. Open the the android-level gradle.build file. Change compileSdkVersion and targetSdkVersion versions to 31. 
+
+4. Update build tools version. Open the the android-level gradle.build file. Change buildToolsVersion to 31.0.0. Sync the project. 
+If the sync fails saying "Manifest merger failed due to android:exported", open AndroidManifest.xml, find the "activity" tag, it should be underlined with a red line,
+hover your mouse over the word "activity", it will suggest you to add "exported=true", choose it to have it set automatically.
+
+5. Update/upgrade library versions. Open the the android-level gradle.build file. Change the versions like so:
+
+	implementation 'com.google.android.gms:play-services-ads:20.5.0'
+	implementation 'com.google.android.ump:user-messaging-platform:2.0.0'
+	implementation platform('com.google.firebase:firebase-bom:28.0.0')
+	implementation 'com.android.billingclient:billing:4.0.0'
+	
+Sync project	
+	
+	
+6. The billing upgrade breaks the IAP source code. So, replace android/src/word.search/IAPActivity.java with the new one.	

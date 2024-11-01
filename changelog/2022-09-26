@@ -1,0 +1,41 @@
+YOU SHOULD MAKE A BACKUP COPY OF THE PROJECT BEFORE APPLYING THE FOLLOWING CHANGES.
+
+1. Update Android Studio to the latest.
+
+	2.1. Go to File->Project Structure.
+	2.2. Go to Project tab.
+	2.3. Select 7.5.1 from Gradle Version.
+	
+	
+3. Update Android project gradle version.
+	3.1. Go to File->Project Structure
+	3.2. Go to Project tab.
+	3.3. Select 7.2.2 from Android Gradle Plugin Version.
+	
+4. Upgrade billing library to 5.0.0.
+	4.1. Open the top-level build.gradle file.
+	4.2. Find and change com.android.billingclient:billing to 5.0.0 or higher if available.
+	4.3. Sync the gradle file when prompted.
+	4.4. File > Invalidate Caches.
+	4.5. Replace the contents of IAPActivity.java.
+
+5. Upgrade Google mobile ads to 21.1.0. Beware that this requires min Android SDK to be 19.
+	5.1. In the top-level build.gradle file, change com.google.android.gms:play-services-ads to 21.2.0 or higher if available.
+	5.2. Open the Android-level build.gradle file, update minSdkVersion to 19.
+	5.3. Sync the gradle file when prompted.
+
+6. Update firebase bom to 30.3.1. 
+	6.1. In the top-level build.gradle file, change com.google.firebase:firebase-bom to 30.3.1.
+	6.2. Sync the gradle file when prompted.
+	
+7. Display interstitial ads without hitting the next level button. They will pop up at the end of a level automatically from now on.
+This is a new requirement by google: https://support.google.com/googleplay/android-developer/answer/12253906
+	7.1. In LevelEnd.java replace the contents of the changeListener and delete the interstitialAdClosed method.
+	7.2. In GameController.java replace the contents of the levelFinished1 method add the new method interstitialAdClosed into this file.
+	
+8. Update google play services to 4.3.13.
+	8.1. In the top-level build.gradle file, change com.google.gms:google-services to 4.3.13 or higher if available.
+	8.2. Sync the gradle file when prompted.	
+	
+	
+9. Test all the changes.	
